@@ -1,0 +1,32 @@
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=100000
+HISTFILESIZE=200000
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# Ritch path
+PATH="/usr/sbin:/usr/local/sbin:$PATH"
+PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+export PATH
+
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $ '
+
+mkcd(){
+	mkdir "$1" && cd "$1"
+}
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias rev='mpv ~/git/brum/config/rev.mp3 > /dev/null 2>&1 &'
+
+export EDITOR=/usr/bin/vim
+export BROWSER=/usr/bin/firefox
+
+#docker 
+alias docker-clean-unused='docker system prune --all --force --volumes'
+alias docker-clean-all='docker stop $(docker container ls -a -q) && docker system prune -a -f --volumes'

@@ -1,0 +1,17 @@
+syntax on
+set showcmd
+set background=light
+set number 
+filetype plugin indent on
+"podtrhavani misto tucneni u preklepu
+hi clear SpellBad
+hi SpellBad cterm=underline
+
+set wildmenu "hezké doplňování 
+set wildmode=longest:full
+set cino=:0
+set spell
+set spelllang=en,cs
+set expandtab ts=4 sw=4 ai "krátký tab
+
+map Q gq
