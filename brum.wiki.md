@@ -55,6 +55,8 @@ certbot certonly --agree-tos --email jitka@ucw.cz --webroot -w /var/lib/letsencr
 </VirtualHost>
 ```
 
+[nginx](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-debian-10)
+
 ### tiny-tiny-rss
 [návod](https://git.tt-rss.org/fox/ttrss-docker-compose/src/static-dockerhub/README.md)
 v env jsem měnila:
