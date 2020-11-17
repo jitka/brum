@@ -21,6 +21,7 @@ for i in bashrc gitconfig vimrc; do ln -s $HOME/git/brum/configs/.$i .$i; done
 ```
 vim /var/www/html/index.html
 ```
+[letsencrypt](https://www.nginx.com/blog/using-free-ssltls-certificates-from-lets-encrypt-with-nginx/)
 ```
 
 certbot certonly --agree-tos --email jitka@ucw.cz --webroot -w /var/lib/letsencrypt/ -d brum.wiki -d www.brum.wiki
