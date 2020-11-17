@@ -34,5 +34,5 @@ slack
 
 ```
 cd && rm -r .bashrc .gitconfig .vimrc .ideavimrc
-for i in bashrc gitconfig vimrc ideavimrc; do ln -s $HOME/brum/config/.$i .$i; done
+for i in bashrc gitconfig vimrc ideavimrc; do ln -s $HOME/git/brum/config/.$i .$i; done
 ```
