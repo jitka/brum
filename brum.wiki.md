@@ -17,7 +17,12 @@ for i in bashrc gitconfig vimrc; do ln -s $HOME/git/brum/configs/.$i .$i; done
 ### homepage
 
 [nginx](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-debian-10)
+
 ```
+vim /var/www/html/index.html
+```
+```
+
 certbot certonly --agree-tos --email jitka@ucw.cz --webroot -w /var/lib/letsencrypt/ -d brum.wiki -d www.brum.wiki
 ```
 
