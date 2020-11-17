@@ -31,15 +31,13 @@ server {
     server_name brum.wiki www.brum.wiki;
 }
 root@zazvor:~# certbot --nginx --email jitka@ucw.cz -d brum.wiki -d www.brum.wiki
-
-certbot certonly --agree-tos --email jitka@ucw.cz --webroot -w /var/lib/letsencrypt/ -d brum.wiki -d www.brum.wiki
 ```
 
 ### tiny-tiny-rss
 [návod](https://git.tt-rss.org/fox/ttrss-docker-compose/src/static-dockerhub/README.md)
 v env jsem měnila:
 * postgre password 
-* SELF_URL_PATH=http://37.205.14.245:8280/tt-rss
+* SELF_URL_PATH=https://brum.wiki/tt-rss old: SELF_URL_PATH=http://37.205.14.245:8280/tt-rss
 * HTTP_PORT=8280
 
 ```
@@ -50,4 +48,7 @@ TODO [spouštění přes systemd](https://community.hetzner.com/tutorials/docker
 v tuto chvílí běží [zde](http://37.205.14.245:8280/tt-rss/)
 
 [nastavit ssl](https://git.tt-rss.org/fox/ttrss-docker-compose/wiki#using-ssl-with-letsencrypt)
+[nastavit nginx](https://git.tt-rss.org/fox/ttrss-docker-compose/wiki#how-do-i-put-this-container-behind-a-reverse-proxy) v docker-compose zakomentovat `web` odkomentovat `web-nginx`, ta konfigurace patří do části server v `/etc/nginx/conf.d/brum.wiki.conf` 
+
+
 přihlásit je jako `admin` `password`, změnit heslo, vytvořit uživatele `jitka`
