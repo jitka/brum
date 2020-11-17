@@ -15,7 +15,7 @@ snap
 youtube music desktop
 
 * choose hostname ```hostnamectl set-hostname kren```
-* add ssh-keygen && cat ~/.ssh/id_rsa.pub key to github
+* add ssh-keygen && cat ~/.ssh/id_rsa.pub key to [github](https://github.com/settings/ssh/new)
 * settings -> user -> fingerprint
 * setting -> appereance -> dark
 
