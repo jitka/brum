@@ -52,3 +52,6 @@ v tuto chvílí běží [zde](http://37.205.14.245:8280/tt-rss/)
 
 
 přihlásit je jako `admin` `password`, změnit heslo, vytvořit uživatele `jitka`
+
+### file sync
+[WebDAV in nginx](https://opensource.ncsa.illinois.edu/confluence/display/ERGO/Creating+a+WebDAV+repository+server+with+NGINX)
