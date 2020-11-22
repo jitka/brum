@@ -88,3 +88,15 @@ přihlásit je jako `admin` `password`, změnit heslo, vytvořit uživatele `jit
 
 ### file sync
 [WebDAV in nginx](https://opensource.ncsa.illinois.edu/confluence/display/ERGO/Creating+a+WebDAV+repository+server+with+NGINX)
+```
+mkdir /var/dav
+chown www-data /var/dav
+mkdir /var/dav/ebooks
+mkdir /var/dav/documents
+certbot --nginx --email jitka@ucw.cz -d dav.brum.wiki
+```
+create http access crenditals
+```
+apt install apache2-utils
+htpasswd -c /etc/nginx/htpasswd jitka
+```
