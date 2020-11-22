@@ -32,6 +32,39 @@ server {
 }
 root@zazvor:~# certbot --nginx --email jitka@ucw.cz -d brum.wiki -d www.brum.wiki
 ```
+#### přesměrování z http -> https
+```
+root@zazvor:~ $ cat /etc/nginx/conf.d/brum.wiki.conf 
+server {
+    listen 80;
+
+    server_name brum.wiki www.brum.wiki;
+    return 301 https://brum.wiki$request_uri;
+}
+
+server {
+
+    root /var/www/html;
+    server_name brum.wiki www.brum.wiki;
+
+    listen [::]:443 ssl ipv6only=on; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/brum.wiki/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/brum.wiki/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+    location /tt-rss/ {
+          proxy_set_header Host $host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $remote_addr;
+          proxy_set_header X-Forwarded-Proto $scheme;
+
+          proxy_pass http://127.0.0.1:8280/tt-rss/;
+          break;
+    }
+}
+```
 
 ### tiny-tiny-rss
 [návod](https://git.tt-rss.org/fox/ttrss-docker-compose/src/static-dockerhub/README.md)
