@@ -101,3 +101,4 @@ create http access crenditals
 apt install apache2-utils
 htpasswd -c /etc/nginx/htpasswd jitka
 ```
+TODO to přěsměrováni http -> https žere i subdomény, 1) vrazit k danému server 2) místo  server_name brum.wiki www.brum.wiki; použít reqex
