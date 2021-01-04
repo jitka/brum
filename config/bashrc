@@ -23,10 +23,19 @@ alias l='ls -CF'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias rev='mpv ~/git/brum/config/rev.mp3 > /dev/null 2>&1 &'
+alias pwd='echo `basename $PWD`'
 
 export EDITOR=/usr/bin/vim
 export BROWSER=/usr/bin/firefox
+export WORKON_HOME=$HOME/.env
+source ~/.local/bin/virtualenvwrapper.sh
 
-#docker 
+# Tilix
+if [[ $TILIX_ID ]]; then
+        source /etc/profile.d/vte.sh
+fi
+
+# Docker 
 alias docker-clean-unused='docker system prune --all --force --volumes'
 alias docker-clean-all='docker stop $(docker container ls -a -q) && docker system prune -a -f --volumes'
+source <(kubectl completion bash) source <(kubectl completion bash)
