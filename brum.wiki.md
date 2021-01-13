@@ -6,6 +6,7 @@ ssh root@brum.wiki
 heslo a virtuální konzole:
 https://vpsadmin.vpsfree.cz/ -> vps -> id 
 
+[vypout ssh příhlašování heslem](https://www.cyberciti.biz/faq/how-to-disable-ssh-password-login-on-linux/)
 ```
 apt install git docker-compose vim
 mkdir git && cd git
@@ -14,6 +15,10 @@ cd && rm -r .bashrc .gitconfig .vimrc
 for i in bashrc gitconfig vimrc; do ln -s $HOME/git/brum/configs/.$i .$i; done
 ```
 
+link nginx configuratin
+```
+ln -s /root/git/brum/config/brum.wiki.conf /etc/nginx/conf.d/brum.wiki.conf 
+```
 ### homepage
 
 [nginx](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-debian-10)
@@ -101,4 +106,3 @@ create http access crenditals
 apt install apache2-utils
 htpasswd -c /etc/nginx/htpasswd jitka
 ```
-TODO to přěsměrováni http -> https žere i subdomény, 1) vrazit k danému server 2) místo  server_name brum.wiki www.brum.wiki; použít reqex
