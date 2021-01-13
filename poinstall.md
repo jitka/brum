@@ -22,6 +22,8 @@ snap youtube-music-desktop
 ```
 sudo apt install docker.io git tilix  ruby npm python-is-python3 httpie gnome-tweaks vim htop tldr datovka mc ack gimp mpv texlive
 
+python3-virtualenvwrapper
+
 steam
 pycharm
 slack
