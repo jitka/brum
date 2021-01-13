@@ -20,14 +20,7 @@ snap youtube-music-desktop
 * setting -> appereance -> dark
 
 ```
-sudo apt install 
-docker.io git tilix 
-ruby npm
-python-is-python3
-httpie
-gnome-tweaks
-vim htop tldr datovka mc ack gimp
-mpv texlive
+sudo apt install docker.io git tilix  ruby npm python-is-python3 httpie gnome-tweaks vim htop tldr datovka mc ack gimp mpv texlive
 
 steam
 pycharm
