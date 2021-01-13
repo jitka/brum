@@ -15,3 +15,9 @@ set spelllang=en,cs
 set expandtab ts=4 sw=4 ai "krátký tab
 
 map Q gq
+
+"jedi-vim instalce:
+"nainstalovat balik
+"naisntalovat vim plugin
+"pipem neaistalov jedi server
+let g:jedi#popup_on_dot = 0
