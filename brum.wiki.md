@@ -6,7 +6,16 @@ ssh root@brum.wiki
 heslo a virtuální konzole:
 https://vpsadmin.vpsfree.cz/ -> vps -> id 
 
-[vypout ssh příhlašování heslem](https://www.cyberciti.biz/faq/how-to-disable-ssh-password-login-on-linux/)
+vypout ssh příhlašování heslem
+```
+root@zazvor:~ $ cat /etc/ssh/sshd_config 
+X11Forwarding yes
+AllowAgentForwarding yes
+PermitRootLogin yes
+PasswordAuthentication no
+```
+
+
 ```
 apt install git docker-compose vim
 mkdir git && cd git
