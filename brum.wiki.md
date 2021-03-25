@@ -100,7 +100,7 @@ v tuto chvílí běží [zde](http://37.205.14.245:8280/tt-rss/)
 
 přihlásit je jako `admin` `password`, změnit heslo, vytvořit uživatele `jitka`
 
-### file sync
+### file sync ?!? working?
 WebDAV in nginx: [1](https://opensource.ncsa.illinois.edu/confluence/display/ERGO/Creating+a+WebDAV+repository+server+with+NGINX) or 
 [2](https://tn710617.github.io/buildAWebDavServerWithNginx/)
 ```
@@ -115,3 +115,6 @@ create http access crenditals
 apt install apache2-utils
 htpasswd -c /etc/nginx/htpasswd jitka
 ```
+
+### calibre
+[official manual](https://manual.calibre-ebook.com/server.html#accessing-the-server-from-devices-on-your-home-network)
