@@ -138,6 +138,7 @@ server {
 }
 ```
 [offline linux access](https://syncany.readthedocs.io/en/latest/commands.html)
+[nebo](https://github.com/Jwink3101/syncrclone)
 
 ### calibre
 [official manual](https://manual.calibre-ebook.com/server.html#accessing-the-server-from-devices-on-your-home-network)
