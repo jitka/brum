@@ -137,7 +137,7 @@ server {
     create_full_put_path    on; 
 }
 ```
-offline linux access
+[offline linux access](https://syncany.readthedocs.io/en/latest/commands.html)
 
 ### calibre
 [official manual](https://manual.calibre-ebook.com/server.html#accessing-the-server-from-devices-on-your-home-network)
