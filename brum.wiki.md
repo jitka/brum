@@ -100,20 +100,42 @@ v tuto chvílí běží [zde](http://37.205.14.245:8280/tt-rss/)
 
 přihlásit je jako `admin` `password`, změnit heslo, vytvořit uživatele `jitka`
 
-### file sync ?!? working?
-WebDAV in nginx: [1](https://opensource.ncsa.illinois.edu/confluence/display/ERGO/Creating+a+WebDAV+repository+server+with+NGINX) or 
-[2](https://tn710617.github.io/buildAWebDavServerWithNginx/)
+### file sync
 ```
-mkdir /var/dav
-chown www-data /var/dav
-mkdir /var/dav/ebooks
-mkdir /var/dav/documents
-certbot --nginx --email jitka@ucw.cz -d dav.brum.wiki
-```
-create http access crenditals
-```
-apt install apache2-utils
-htpasswd -c /etc/nginx/htpasswd jitka
+server {
+
+    server_name davs.brum.wiki;
+
+    root /var/dav/;
+
+    listen 443 ssl; # managed by Certbot
+        
+    ssl_certificate /etc/letsencrypt/live/brum.wiki/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/brum.wiki/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+    auth_basic              realm_name;
+    # The file containing authorized users
+    auth_basic_user_file    /etc/nginx/.htpasswd;
+
+    # dav allowed method
+    dav_methods     PUT DELETE MKCOL COPY MOVE;
+    # Allow current scope perform specified DAV method
+    dav_ext_methods PROPFIND OPTIONS;
+
+    # In this folder, newly created folder or file is to have specified permission. If none is given, default is user:rw. If all or group permission is specified, user could be skipped 
+    dav_access      user:rw group:rw all:rw;
+
+    # Temporary folder
+    client_body_temp_path   /tmp/nginx/client-bodies;
+
+    # MAX size of uploaded file, 0 mean unlimited
+    client_max_body_size    0;  
+
+    # Allow autocreate folder here if necessary
+    create_full_put_path    on; 
+}
 ```
 
 ### calibre
