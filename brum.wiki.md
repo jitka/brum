@@ -6,6 +6,16 @@ ssh root@brum.wiki
 heslo a virtuální konzole:
 https://vpsadmin.vpsfree.cz/ -> vps -> id 
 
+vypout ssh příhlašování heslem
+```
+root@zazvor:~ $ cat /etc/ssh/sshd_config 
+X11Forwarding yes
+AllowAgentForwarding yes
+PermitRootLogin yes
+PasswordAuthentication no
+```
+
+
 ```
 apt install git docker-compose vim
 mkdir git && cd git
@@ -14,6 +24,10 @@ cd && rm -r .bashrc .gitconfig .vimrc
 for i in bashrc gitconfig vimrc; do ln -s $HOME/git/brum/configs/.$i .$i; done
 ```
 
+link nginx configuratin
+```
+ln -s /root/git/brum/config/brum.wiki.conf /etc/nginx/conf.d/brum.wiki.conf 
+```
 ### homepage
 
 [nginx](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-debian-10)
@@ -87,18 +101,44 @@ v tuto chvílí běží [zde](http://37.205.14.245:8280/tt-rss/)
 přihlásit je jako `admin` `password`, změnit heslo, vytvořit uživatele `jitka`
 
 ### file sync
-WebDAV in nginx: [1](https://opensource.ncsa.illinois.edu/confluence/display/ERGO/Creating+a+WebDAV+repository+server+with+NGINX) or 
-[2](https://tn710617.github.io/buildAWebDavServerWithNginx/)
 ```
-mkdir /var/dav
-chown www-data /var/dav
-mkdir /var/dav/ebooks
-mkdir /var/dav/documents
-certbot --nginx --email jitka@ucw.cz -d dav.brum.wiki
+server {
+
+    server_name davs.brum.wiki;
+
+    root /var/dav/;
+
+    listen 443 ssl; # managed by Certbot
+        
+    ssl_certificate /etc/letsencrypt/live/brum.wiki/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/brum.wiki/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+    auth_basic              realm_name;
+    # The file containing authorized users
+    auth_basic_user_file    /etc/nginx/.htpasswd;
+
+    # dav allowed method
+    dav_methods     PUT DELETE MKCOL COPY MOVE;
+    # Allow current scope perform specified DAV method
+    dav_ext_methods PROPFIND OPTIONS;
+
+    # In this folder, newly created folder or file is to have specified permission. If none is given, default is user:rw. If all or group permission is specified, user could be skipped 
+    dav_access      user:rw group:rw all:rw;
+
+    # Temporary folder
+    client_body_temp_path   /tmp/nginx/client-bodies;
+
+    # MAX size of uploaded file, 0 mean unlimited
+    client_max_body_size    0;  
+
+    # Allow autocreate folder here if necessary
+    create_full_put_path    on; 
+}
 ```
-create http access crenditals
-```
-apt install apache2-utils
-htpasswd -c /etc/nginx/htpasswd jitka
-```
-TODO to přěsměrováni http -> https žere i subdomény, 1) vrazit k danému server 2) místo  server_name brum.wiki www.brum.wiki; použít reqex
+[offline linux access](https://syncany.readthedocs.io/en/latest/commands.html)
+[nebo](https://github.com/Jwink3101/syncrclone)
+
+### calibre
+[official manual](https://manual.calibre-ebook.com/server.html#accessing-the-server-from-devices-on-your-home-network)
