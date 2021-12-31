@@ -28,9 +28,6 @@ alias pwd='echo `basename $PWD`'
 
 export EDITOR=/usr/bin/vim
 export BROWSER=/usr/bin/firefox
-export WORKON_HOME=$HOME/.env
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source ~/.local/bin/virtualenvwrapper.sh
 
 # Tilix
 if [[ $TILIX_ID ]]; then
