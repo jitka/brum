@@ -7,6 +7,9 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+# Turn of bell
+#bind 'set bell-style none'
+
 # Ritch path
 PATH="/usr/sbin:/usr/local/sbin:$PATH"
 PATH="$HOME/.local/bin:$HOME/bin:$PATH"
@@ -24,13 +27,15 @@ alias l='ls -CF'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias rev='mpv ~/git/brum/config/rev.mp3 > /dev/null 2>&1 &'
-alias pwd='echo `basename $PWD`'
 
 export EDITOR=/usr/bin/vim
 export BROWSER=/usr/bin/firefox
 export WORKON_HOME=$HOME/.env
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source ~/.local/bin/virtualenvwrapper.sh
+#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+#source ~/.local/bin/virtualenvwrapper.sh
+
+# Git autocomlition ubuntu `sudo apt-get install -y git-core bash-completion`
+source /usr/share/bash-completion/completions/git
 
 # Tilix
 if [[ $TILIX_ID ]]; then
@@ -40,3 +45,11 @@ fi
 # Docker 
 alias docker-clean-unused='docker system prune --all --force --volumes'
 alias docker-clean-all='docker stop $(docker container ls -a -q) && docker system prune -a -f --volumes'
+
+# Prusa
+export CONFFILE=~/git/Prusa-Connect-API/etc/application.ini
+export KUBECONFIG=~/.kube/prusa_config
+
+# Pycharm
+alias ticho=`echo "bind 'set bell-style none'"`
+
