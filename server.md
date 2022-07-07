@@ -6,7 +6,16 @@ ssh root@brum.wiki
 heslo a virtuální konzole:
 https://vpsadmin.vpsfree.cz/ -> vps -> id 
 
-[vypout ssh příhlašování heslem](https://www.cyberciti.biz/faq/how-to-disable-ssh-password-login-on-linux/)
+vypout ssh příhlašování heslem
+```
+root@zazvor:~ $ cat /etc/ssh/sshd_config 
+X11Forwarding yes
+AllowAgentForwarding yes
+PermitRootLogin yes
+PasswordAuthentication no
+```
+
+
 ```
 apt install git docker-compose vim
 mkdir git && cd git
@@ -91,18 +100,7 @@ v tuto chvílí běží [zde](http://37.205.14.245:8280/tt-rss/)
 
 přihlásit je jako `admin` `password`, změnit heslo, vytvořit uživatele `jitka`
 
-### file sync
-WebDAV in nginx: [1](https://opensource.ncsa.illinois.edu/confluence/display/ERGO/Creating+a+WebDAV+repository+server+with+NGINX) or 
-[2](https://tn710617.github.io/buildAWebDavServerWithNginx/)
-```
-mkdir /var/dav
-chown www-data /var/dav
-mkdir /var/dav/ebooks
-mkdir /var/dav/documents
-certbot --nginx --email jitka@ucw.cz -d dav.brum.wiki
-```
-create http access crenditals
-```
-apt install apache2-utils
-htpasswd -c /etc/nginx/htpasswd jitka
-```
+### sync thing
+
+### calibre
+[official manual](https://manual.calibre-ebook.com/server.html#accessing-the-server-from-devices-on-your-home-network)
