@@ -53,3 +53,6 @@ export KUBECONFIG=~/.kube/prusa_config
 # Pycharm
 alias ticho=`echo "bind 'set bell-style none'"`
 
+# nvim - editor
+alias brum='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim-qt'
+
