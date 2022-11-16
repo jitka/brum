@@ -34,4 +34,9 @@ slack
 ```
 cd && rm -r .bashrc .gitconfig .vimrc .ideavimrc
 for i in bashrc gitconfig vimrc ideavimrc; do ln -s $HOME/git/brum/config/$i .$i; done
+mkdir ~/.config/nvim && ln -s $HOME/git/brum/config/vimrc ~/.config/nvim/init.vim
 ```
+
+tilix
+dconf load /com/gexperts/Tilix/ < tilix.dconf
+

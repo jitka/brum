@@ -1,0 +1,11 @@
+[/]
+control-scroll-zoom=true
+custom-hyperlinks=['(^[a-zA-Z0-9\\/\\_\\-\\.\\ ]+\\.?[a-zAZ0-9]+)\\:([0-9]+),nvr -p +$2 $1,false', '"\\""([a-zA-Z0-9\\/\\_\\-\\.\\ ]+\\.?[a-zAZ0-9]+)\\""\\, line ([0-9]+)",nvr -p +$2 $1,false', '(prusa_connect_api\\/.*py),nvr -p $1,false']
+new-instance-mode='split-down'
+prompt-on-close=false
+quake-specific-monitor=0
+theme-variant='dark'
+
+[profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+terminal-bell='none'
+visible-name='Default'
