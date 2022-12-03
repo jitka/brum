@@ -8,6 +8,11 @@ nastavit dvořáka
 přihlásit se do firexu a githubu
 
 https://github.com/jitka/brum/security
+
+```
+git clone root@jitka.ucw.cz:git/private.git
+```
+
 ```
 sudo apt update; sudo apt upgrade
 ```
@@ -43,3 +48,9 @@ https://github.com/gnunn1/tilix/issues/571
 ```
 dconf load /com/gexperts/Tilix/ < ~/git/brum/config/tilix.dconf
 ```
+
+### Prusa
+```
+ln -s ~/git/private/prusa/env ~/git/Prusa-Connect-API/env
+```
+
