@@ -31,8 +31,6 @@ alias rev='mpv ~/git/brum/config/rev.mp3 > /dev/null 2>&1 &'
 export EDITOR=/usr/bin/vim
 export BROWSER=/usr/bin/firefox
 export WORKON_HOME=$HOME/.env
-#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-#source ~/.local/bin/virtualenvwrapper.sh
 
 # Git autocomlition ubuntu `sudo apt-get install -y git-core bash-completion`
 source /usr/share/bash-completion/completions/git

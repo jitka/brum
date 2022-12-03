@@ -20,7 +20,7 @@ snap youtube-music-desktop
 * setting -> appereance -> dark
 
 ```
-sudo apt install docker.io git tilix  ruby npm python-is-python3 httpie gnome-tweaks vim htop tldr datovka mc ack gimp mpv texlive
+sudo apt install docker.io git tilix ruby npm python-is-python3 httpie gnome-tweaks vim htop tldr mc ack gimp mpv texlive
 
 python3-virtualenvwrapper influxdb-client
 
@@ -34,4 +34,12 @@ slack
 ```
 cd && rm -r .bashrc .gitconfig .vimrc .ideavimrc
 for i in bashrc gitconfig vimrc ideavimrc; do ln -s $HOME/git/brum/config/$i .$i; done
+```
+
+### Tilix
+
+https://github.com/gnunn1/tilix/issues/571
+
+```
+dconf load /com/gexperts/Tilix/ < ~/git/brum/config/tilix.dconf
 ```
