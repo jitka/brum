@@ -3,17 +3,17 @@
 - aktuální cesta do práce
 - aktuální cesta do Brandejsa
 ?? kamery
-http://tram.mobilnitabla.cz/
 
-
-https://mojepraha.eu/apispecs
+https://api.golemio.cz/v2/pid/docs/openap
 
 ### Instalation
 ```
-python -m venv ~/.venv/dpp
-source ~/.venv/dpp/bin/activate
+source ~/.local/bin/virtualenvwrapper.sh
+mkvirtualenv dpp
+# add export GOLEMIO_KEY= to postactiove
+workon dpp
 pip install -r requirements.txt
 ```
-
+golemio key https://api.golemio.cz/api-keys/dashboard
 
 

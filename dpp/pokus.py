@@ -1,26 +1,22 @@
 import requests
+import os
 from pprint import pprint
 
-cookies = {
-    'PHPSESSID': 'olfe47p0qi4jp1bpk6gei24jtg',
-}
+token = os.environ['GOLEMIO_KEY']
 
 headers = {
-    'Accept': 'application/json',
-    'Accept-Language': 'cs,en',
-    'Content-Type': 'text/json',
-    'Origin': 'jitka@ucw.cz script',
-    'Connection': 'keep-alive',
+    'accept': 'application/json',
+    'X-Access-Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImppdGthQHVjdy5jeiIsImlkIjoxNjU4LCJuYW1lIjpudWxsLCJzdXJuYW1lIjpudWxsLCJpYXQiOjE2NzUwMjI5ODYsImV4cCI6MTE2NzUwMjI5ODYsImlzcyI6ImdvbGVtaW8iLCJqdGkiOiJmY2MyNTI4ZS01ZmVlLTQxOTktOGM0Yi05NzI4YzgzYmJjMGQifQ.B2IiVafxUDAccjcUuNdlacedk2_v7m4LCaf2wovm8YY',
 }
 
-json = {
-        "hash":["a9f6f07a9a85ea8e79cd8c35837cb4f2","090a7d01ef3f229abad4d4c08c73293d"],
-        "linky":8,  # číslo linky
-        }
+params = {
+    'limit': '1000',
+    'offset': '0',
+}
 
-response = requests.post('http://tram.mobilnitabla.cz/GETDATA/', cookies=cookies, headers=headers, json=json)
+url = 'https://api.golemio.cz/v2/gtfs'
 
+response = requests.get(url + '/stops', headers=headers, params={'names': 'Palmovka'})
+palmovka_stops = response.json()['features']
 
-#server = 'http://tram.mobilnitabla.cz/GETDATA/'
-#res = requests.get(server)
-pprint(response.json()['spoje'])
+pprint(len(hui))
