@@ -17,7 +17,8 @@ git clone root@jitka.ucw.cz:git/private.git
 sudo apt update; sudo apt upgrade
 ```
 ```
-snap youtube-music-desktop
+snap install --edge youtube-music
+sudo snap install pycharm-community --classic
 ```
 * choose hostname ```hostnamectl set-hostname kren```
 * add ssh-keygen && cat ~/.ssh/id_rsa.pub key to [github](https://github.com/settings/ssh/new)
