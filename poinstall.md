@@ -7,10 +7,10 @@ nainstalovat
 nastavit dvořáka
 přihlásit se do firexu a githubu
 
-https://github.com/jitka/brum/security
 
 ```
 git clone root@jitka.ucw.cz:git/private.git
+git clone git@github.com:jitka/brum.git
 ```
 
 ```
