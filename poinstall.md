@@ -42,6 +42,15 @@ cd && rm -r .bashrc .gitconfig .vimrc .ideavimrc
 for i in bashrc gitconfig vimrc ideavimrc; do ln -s $HOME/git/brum/config/$i .$i; done
 ```
 
+### Syncthing
+```
+sudo su
+ln -s $HOME/git/brum/config/syncthing@.service /etc/systemd/system/syncthing@.service
+systemctl daemon-reload
+systemctl start syncthing@root
+systemctl enable syncthing@root
+```
+
 ### Tilix
 
 https://github.com/gnunn1/tilix/issues/571
