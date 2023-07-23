@@ -7,10 +7,10 @@ nainstalovat
 nastavit dvořáka
 přihlásit se do firexu a githubu
 
-https://github.com/jitka/brum/security
 
 ```
 git clone root@jitka.ucw.cz:git/private.git
+git clone git@github.com:jitka/brum.git
 ```
 
 ```
@@ -40,6 +40,16 @@ slack
 ```
 cd && rm -r .bashrc .gitconfig .vimrc .ideavimrc
 for i in bashrc gitconfig vimrc ideavimrc; do ln -s $HOME/git/brum/config/$i .$i; done
+mkdir ~/.config/nvim && ln -s $HOME/git/brum/config/vimrc ~/.config/nvim/init.vim
+```
+
+### Syncthing
+```
+sudo su
+ln -s $HOME/git/brum/config/syncthing@.service /etc/systemd/system/syncthing@.service
+systemctl daemon-reload
+systemctl start syncthing@root
+systemctl enable syncthing@root
 ```
 
 ### Tilix
@@ -48,6 +58,14 @@ https://github.com/gnunn1/tilix/issues/571
 
 ```
 dconf load /com/gexperts/Tilix/ < ~/git/brum/config/tilix.dconf
+```
+
+### Docker
+
+```
+sudo usermod -aG docker ${USER}
+su - ${USER}
+docker run hello-world
 ```
 
 ### Prusa
