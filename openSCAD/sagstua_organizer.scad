@@ -24,6 +24,7 @@ module bocni_dil_2d(){
       translate([u_matrace, pod_bocnici,0])bocnice();
    }
 }
+bocni_dil_2d();
 
 module bocni_dil(){
     linear_extrude(height=tloustka_dreva){
@@ -31,5 +32,5 @@ module bocni_dil(){
     }
 }
 
-bocni_dil();
+//bocni_dil();
 
