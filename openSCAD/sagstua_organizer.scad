@@ -2,10 +2,11 @@ tloustka_dreva = 5;
 u_matrace = 10;
 sirka_bocnice = 21;
 uzitecna_sirka = 50;
-vyska_nabijecky = 50;
 vyska_bocnice = 141.5;
 pod_bocnici = 0;
 vyska = 150;
+hloubka_dilu = u_matrace + sirka_bocnice + uzitecna_sirka + tloustka_dreva;
+sirka_policky = 230;
 
 module bocnice(){
    rost = 10;
@@ -19,12 +20,10 @@ module bocnice(){
 
 module bocni_dil_2d(){
    difference() {
-      hloubka_dilu = u_matrace + sirka_bocnice + uzitecna_sirka + tloustka_dreva;
       square([hloubka_dilu, vyska]);
       translate([u_matrace, pod_bocnici,0])bocnice();
    }
 }
-bocni_dil_2d();
 
 module bocni_dil(){
     linear_extrude(height=tloustka_dreva){
@@ -32,5 +31,17 @@ module bocni_dil(){
     }
 }
 
-//bocni_dil();
+
+module policka(){
+    bocni_dil();
+    translate([0,-tloustka_dreva,0])
+        cube([hloubka_dilu, tloustka_dreva, sirka_policky]);
+    translate([hloubka_dilu - tloustka_dreva, 0, 0])
+        cube([tloustka_dreva, vyska, sirka_policky]);
+    translate([0, 0, sirka_policky-tloustka_dreva])
+        bocni_dil();
+
+}
+
+policka();
 
