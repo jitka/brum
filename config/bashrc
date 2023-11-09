@@ -44,7 +44,6 @@ export CONFFILE=~/git/Prusa-Connect-API/etc/application.ini
 export KUBECONFIG=~/.kube/prusa_config
 
 # PureStorage
-source ~/git/octillion/local_env/.aliases
 alias purelogin='purelogin --username="jnovotna"'
 
 # Pycharm

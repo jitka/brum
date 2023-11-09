@@ -119,3 +119,19 @@ echo "pokus" > index.html
 python -m http.server 8080
 ssh -N -R 44400:localhost:8080 homeassistant@jitka.ucw.cz
 ```
+
+## samba
+
+(source)[https://askubuntu.com/questions/781963/simple-samba-share-no-password]
+
+```
+sudu su
+mkdir /data/
+mkdir /data/nase
+mkdir /data/video
+sudo chown -R nobody.nogroup /data
+sudo chown -R nobody.nogroup /data/nase
+sudo chown -R nobody.nogroup /data/video
+sudo chmod -R 777 /data/nase
+sudo chmod -R 777 /data/video
+```
