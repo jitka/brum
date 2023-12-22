@@ -45,8 +45,8 @@ mkdir ~/.config/nvim && ln -s $HOME/git/brum/config/vimrc ~/.config/nvim/init.vi
 
 ### Syncthing
 ```
+sudo ln -s $HOME/git/brum/config/syncthing@.service /etc/systemd/system/syncthing@.service
 sudo su
-ln -s $HOME/git/brum/config/syncthing@.service /etc/systemd/system/syncthing@.service
 systemctl daemon-reload
 systemctl start syncthing@root
 systemctl enable syncthing@root
