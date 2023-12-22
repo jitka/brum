@@ -60,6 +60,14 @@ https://github.com/gnunn1/tilix/issues/571
 dconf load /com/gexperts/Tilix/ < ~/git/brum/config/tilix.dconf
 ```
 
+### Docker
+
+```
+sudo usermod -aG docker ${USER}
+su - ${USER}
+docker run hello-world
+```
+
 ### Prusa
 ```
 ln -s ~/git/private/prusa/env ~/git/Prusa-Connect-API/env
