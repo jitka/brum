@@ -105,17 +105,11 @@ přihlásit je jako `admin` `password`, změnit heslo, vytvořit uživatele `jit
 ### calibre
 [official manual](https://manual.calibre-ebook.com/server.html#accessing-the-server-from-devices-on-your-home-network)
 
-### home assitant port fowarding
+### home assitant tunel
 
 on haos
+* sshkeygen -> copy to vpsfree admin sshkeys
 ```
-ssh -N -R 44400:localhost:8123 homeassistant@jitka.ucw.cz
+ssh -N -R 8123:homeassistantlocalhost:8123 root@jitka.ucw.cz
 ```
 
-on haos for test to test
-
-```
-echo "pokus" > index.html
-python -m http.server 8080
-ssh -N -R 44400:localhost:8080 homeassistant@jitka.ucw.cz
-```
