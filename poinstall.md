@@ -68,6 +68,13 @@ su - ${USER}
 docker run hello-world
 ```
 
+### K9S
+[install brew](https://linux.how2shout.com/how-to-install-brew-ubuntu-20-04-lts-linux/)
+delete extra line from `.bashrc`
+```
+brew install k9s
+```
+
 ### Prusa
 ```
 ln -s ~/git/private/prusa/env ~/git/Prusa-Connect-API/env
