@@ -26,7 +26,7 @@ sudo snap install pycharm-community --classic
 * setting -> appereance -> dark
 
 ```
-sudo apt install docker.io git tilix ruby npm python-is-python3 httpie gnome-tweaks vim htop tldr mc ack gimp mpv texlive
+sudo apt install docker.io git tilix ruby npm python-is-python3 httpie gnome-tweaks vim htop tldr mc ack gimp mpv gdebi
 
 python3-virtualenvwrapper influxdb-client
 
