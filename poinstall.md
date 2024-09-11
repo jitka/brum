@@ -26,7 +26,7 @@ sudo snap install pycharm-community --classic
 * setting -> appereance -> dark
 
 ```
-sudo apt install docker.io git tilix ruby npm python-is-python3 httpie gnome-tweaks vim htop tldr mc ack gimp mpv gdebi curl
+sudo apt install docker.io git tilix ruby npm python-is-python3 httpie gnome-tweaks vim htop tldr mc ack gimp mpv gdebi curl snap
 
 python3-virtualenvwrapper influxdb-client
 
@@ -73,12 +73,10 @@ docker run hello-world
 delete extra line from `.bashrc`
 ```
 brew install k9s
+sudo apt install awscli
+sudo snap install kubectl
 ```
 
-### Purestorage
-```
-sudo apt install awscli
-```
 
 ### Prusa
 ```
