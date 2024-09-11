@@ -75,6 +75,11 @@ delete extra line from `.bashrc`
 brew install k9s
 ```
 
+### Purestorage
+```
+sudo apt install awscli
+```
+
 ### Prusa
 ```
 ln -s ~/git/private/prusa/env ~/git/Prusa-Connect-API/env
