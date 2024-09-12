@@ -76,6 +76,7 @@ brew install k9s
 sudo apt install awscli
 sudo snap install kubectl
 ```
+[aws profile](https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html)
 
 
 ### Prusa
