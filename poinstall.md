@@ -62,6 +62,7 @@ dconf load /com/gexperts/Tilix/ < ~/git/brum/config/tilix.dconf
 
 ### Docker
 
+[docker-compose V2](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 ```
 sudo usermod -aG docker ${USER}
 su - ${USER}
