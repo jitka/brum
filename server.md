@@ -117,3 +117,6 @@ on haos
 ssh -N -R 8123:homeassistantlocalhost:8123 root@jitka.ucw.cz
 ```
 
+### jekyll webs
+
+[install](https://jekyllrb.com/docs/installation/ubuntu/)
