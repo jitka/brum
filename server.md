@@ -105,14 +105,18 @@ přihlásit je jako `admin` `password`, změnit heslo, vytvořit uživatele `jit
 ### calibre
 [official manual](https://manual.calibre-ebook.com/server.html#accessing-the-server-from-devices-on-your-home-network)
 
-### home assitant port fowarding
+### home assitant tunel
+
+* [nonexistent add ong with correct port settings](https://carly.be/expose-home-assistant-through-ssh-tunnel/)
+* [general direct](https://community.home-assistant.io/t/ssh-tunneling-using-a-remote-server/318644)
+* [fix-http proxy setting](https://community.home-assistant.io/t/home-assistant-400-bad-request-docker-proxy-solution/322163)
 
 on haos
+* sshkeygen -> copy to vpsfree admin sshkeys
 ```
-ssh -N -R 44400:localhost:8123 homeassistant@jitka.ucw.cz
+ssh -N -R 8123:homeassistantlocalhost:8123 root@jitka.ucw.cz
 ```
 
-on haos for test to test
 
 ```
 echo "pokus" > index.html
@@ -135,3 +139,6 @@ sudo chown -R nobody.nogroup /data/video
 sudo chmod -R 777 /data/nase
 sudo chmod -R 777 /data/video
 ```
+
+### jekyll webs
+[install](https://jekyllrb.com/docs/installation/ubuntu/)
