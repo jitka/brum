@@ -6,20 +6,23 @@ ssh root@jitka.ucw.cz
 heslo a virtuální konzole:
 https://vpsadmin.vpsfree.cz/ -> vps -> id 
 
-vypout ssh příhlašování heslem
+vypout ssh příhlašování heslem & vytvořit uživatele
 ```
+apt install vim
 root@zazvor:~ $ cat /etc/ssh/sshd_config 
-X11Forwarding yes
-AllowAgentForwarding yes
 PermitRootLogin yes
 PasswordAuthentication no
 root@zazvor12:~# systemctl restart sshd
+adduser jitka
 mkdir -p /home/jitka/.ssh && cp /root/.ssh/authorized_keys /home/jitka/.ssh/ && chmod 700 /home/jitka/.ssh && chmod 600 /home/jitka/.ssh/authorized_keys && chown -R jitka:jitka /home/jitka/.ssh
+usermod -aG sudo jitka
+locale-gen
+update-locale LANG=en_US.UTF-8
 ```
 
 ```
-adduser jitka
-apt install git docker-compose vim
+sudo apt install git docker-compose 
+ssh-keygen -t ed25519 -C "jitka@ucw.cz"
 mkdir git && cd git
 git clone git@github.com:jitka/brum.git
 cd && rm -r .bashrc .gitconfig .vimrc
