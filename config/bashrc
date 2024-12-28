@@ -39,12 +39,16 @@ source /usr/share/bash-completion/completions/git
 alias docker-clean-unused='docker system prune --all --force --volumes'
 alias docker-clean-all='docker stop $(docker container ls -a -q) && docker system prune -a -f --volumes'
 
+# Jekyll
+# Install Ruby Gems to ~/.gems'
+export GEM_HOME="$HOME/.gems"
+export PATH="$HOME/.gems/bin:$PATH"
+
 # Prusa
 export CONFFILE=~/git/Prusa-Connect-API/etc/application.ini
 export KUBECONFIG=~/.kube/prusa_config
 
 # PureStorage
-source ~/git/octillion/local_env/.aliases
 alias purelogin='purelogin --username="jnovotna"'
 
 # Pycharm

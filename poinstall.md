@@ -26,7 +26,7 @@ sudo snap install pycharm-community --classic
 * setting -> appereance -> dark
 
 ```
-sudo apt install docker.io git tilix ruby npm python-is-python3 httpie gnome-tweaks vim htop tldr mc ack gimp mpv texlive
+sudo apt install docker.io git tilix ruby npm python-is-python3 httpie gnome-tweaks vim htop tldr mc ack gimp mpv gdebi curl snap python3-pip
 
 python3-virtualenvwrapper influxdb-client
 
@@ -62,11 +62,23 @@ dconf load /com/gexperts/Tilix/ < ~/git/brum/config/tilix.dconf
 
 ### Docker
 
+[docker-compose V2](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 ```
 sudo usermod -aG docker ${USER}
 su - ${USER}
 docker run hello-world
 ```
+
+### K9S
+[install brew](https://linux.how2shout.com/how-to-install-brew-ubuntu-20-04-lts-linux/)
+delete extra line from `.bashrc`
+```
+brew install k9s
+sudo apt install awscli
+sudo snap install kubectl
+```
+[aws profile](https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html)
+
 
 ### Prusa
 ```

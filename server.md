@@ -1,3 +1,4 @@
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIiR4PhPkO5jgxwSZtrm506wmyqn83riPCsWyk9vZ9/P jitka@ucw.cz
 * ip adress `37.205.14.245`
 * hostaname **zazvor**
 ```
@@ -6,32 +7,34 @@ ssh root@jitka.ucw.cz
 heslo a virtuální konzole:
 https://vpsadmin.vpsfree.cz/ -> vps -> id 
 
-vypout ssh příhlašování heslem
+vypout ssh příhlašování heslem & vytvořit uživatele
 ```
+apt install vim
 root@zazvor:~ $ cat /etc/ssh/sshd_config 
-X11Forwarding yes
-AllowAgentForwarding yes
 PermitRootLogin yes
 PasswordAuthentication no
+root@zazvor12:~# systemctl restart sshd
+adduser jitka
+mkdir -p /home/jitka/.ssh && cp /root/.ssh/authorized_keys /home/jitka/.ssh/ && chmod 700 /home/jitka/.ssh && chmod 600 /home/jitka/.ssh/authorized_keys && chown -R jitka:jitka /home/jitka/.ssh
+usermod -aG sudo jitka
+locale-gen
+update-locale LANG=en_US.UTF-8
 ```
 
-
 ```
-apt install git docker-compose vim
+sudo apt install git docker-compose nginx
+ssh-keygen -t ed25519 -C "jitka@ucw.cz"
+cat ~/.ssh/id_ed25519.pub
 mkdir git && cd git
 git clone git@github.com:jitka/brum.git
 cd && rm -r .bashrc .gitconfig .vimrc
 for i in bashrc gitconfig vimrc; do ln -s $HOME/git/brum/configs/.$i .$i; done
 ```
 
-link nginx configuratin
-```
-ln -s /root/git/brum/config/jitka.ucw.cz.conf /etc/nginx/conf.d/jitka.ucw.cz.conf 
-```
 ### homepage
 
-[nginx](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-debian-10)
 ```
+sudo ln -s /root/git/brum/config/jitka.ucw.cz.conf /etc/nginx/conf.d/jitka.ucw.cz.conf 
 vim /var/www/html/index.html
 ```
 [letsencrypt](https://www.nginx.com/blog/using-free-ssltls-certificates-from-lets-encrypt-with-nginx/)
@@ -117,3 +120,28 @@ on haos
 ssh -N -R 8123:homeassistantlocalhost:8123 root@jitka.ucw.cz
 ```
 
+
+```
+echo "pokus" > index.html
+python -m http.server 8080
+ssh -N -R 44400:localhost:8080 homeassistant@jitka.ucw.cz
+```
+
+## samba
+
+(source)[https://askubuntu.com/questions/781963/simple-samba-share-no-password]
+
+```
+sudu su
+mkdir /data/
+mkdir /data/nase
+mkdir /data/video
+sudo chown -R nobody.nogroup /data
+sudo chown -R nobody.nogroup /data/nase
+sudo chown -R nobody.nogroup /data/video
+sudo chmod -R 777 /data/nase
+sudo chmod -R 777 /data/video
+```
+
+### jekyll webs
+[install](https://jekyllrb.com/docs/installation/ubuntu/)

@@ -43,5 +43,6 @@ module policka(){
 
 }
 
-policka();
+
+rotate([0, 90, 0])policka();
 
