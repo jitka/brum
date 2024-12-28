@@ -1,3 +1,4 @@
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIiR4PhPkO5jgxwSZtrm506wmyqn83riPCsWyk9vZ9/P jitka@ucw.cz
 * ip adress `37.205.14.245`
 * hostaname **zazvor**
 ```
@@ -21,22 +22,19 @@ update-locale LANG=en_US.UTF-8
 ```
 
 ```
-sudo apt install git docker-compose 
+sudo apt install git docker-compose nginx
 ssh-keygen -t ed25519 -C "jitka@ucw.cz"
+cat ~/.ssh/id_ed25519.pub
 mkdir git && cd git
 git clone git@github.com:jitka/brum.git
 cd && rm -r .bashrc .gitconfig .vimrc
 for i in bashrc gitconfig vimrc; do ln -s $HOME/git/brum/configs/.$i .$i; done
 ```
 
-link nginx configuratin
-```
-ln -s /root/git/brum/config/jitka.ucw.cz.conf /etc/nginx/conf.d/jitka.ucw.cz.conf 
-```
 ### homepage
 
-[nginx](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-debian-10)
 ```
+sudo ln -s /root/git/brum/config/jitka.ucw.cz.conf /etc/nginx/conf.d/jitka.ucw.cz.conf 
 vim /var/www/html/index.html
 ```
 [letsencrypt](https://www.nginx.com/blog/using-free-ssltls-certificates-from-lets-encrypt-with-nginx/)
