@@ -13,10 +13,12 @@ X11Forwarding yes
 AllowAgentForwarding yes
 PermitRootLogin yes
 PasswordAuthentication no
+root@zazvor12:~# systemctl restart sshd
+mkdir -p /home/jitka/.ssh && cp /root/.ssh/authorized_keys /home/jitka/.ssh/ && chmod 700 /home/jitka/.ssh && chmod 600 /home/jitka/.ssh/authorized_keys && chown -R jitka:jitka /home/jitka/.ssh
 ```
 
-
 ```
+adduser jitka
 apt install git docker-compose vim
 mkdir git && cd git
 git clone git@github.com:jitka/brum.git
