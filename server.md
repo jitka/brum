@@ -28,7 +28,7 @@ cat ~/.ssh/id_ed25519.pub
 mkdir git && cd git
 git clone git@github.com:jitka/brum.git
 cd && rm -r .bashrc .gitconfig .vimrc
-for i in bashrc gitconfig vimrc; do ln -s $HOME/git/brum/configs/.$i .$i; done
+for i in bashrc gitconfig vimrc; do ln -s $HOME/git/brum/config/.$i .$i; done
 ```
 
 ## nginx / homepage
