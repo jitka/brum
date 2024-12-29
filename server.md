@@ -22,7 +22,7 @@ update-locale LANG=en_US.UTF-8
 ```
 
 ```
-sudo apt install git docker-compose nginx
+sudo apt install git docker-compose nginx python3-certbot-nginx certbot 
 ssh-keygen -t ed25519 -C "jitka@ucw.cz"
 cat ~/.ssh/id_ed25519.pub
 mkdir git && cd git
@@ -34,53 +34,13 @@ for i in bashrc gitconfig vimrc; do ln -s $HOME/git/brum/configs/.$i .$i; done
 ### homepage
 
 ```
-sudo ln -s /root/git/brum/config/jitka.ucw.cz.conf /etc/nginx/conf.d/jitka.ucw.cz.conf 
-vim /var/www/html/index.html
-```
-[letsencrypt](https://www.nginx.com/blog/using-free-ssltls-certificates-from-lets-encrypt-with-nginx/)
-```
-root@zazvor:~# rm /etc/nginx/sites-enabled/default
-root@zazvor:~# cat /etc/nginx/conf.d/jitka.ucw.cz.conf
-server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-    root /var/www/html;
-    server_name jitka.ucw.cz www.jitka.ucw.cz;
-}
-root@zazvor:~# certbot --nginx --email jitka@ucw.cz -d jitka.ucw.cz
-```
-#### přesměrování z http -> https
-```
-root@zazvor:~ $ cat /etc/nginx/conf.d/jitka.ucw.cz.conf 
-server {
-    listen 80;
+sudo certbot --nginx --email jitka@ucw.cz -d jitka.ucw.cz
+sudo ln -s /home/jitka/git/brum/server/index.html /var/www/html/index.html
+sudo ln -s /home/jitka/git/brum/server/jitka.ucw.cz.conf /etc/nginx/conf.d/jitka.ucw.cz.conf
 
-    server_name jitka.ucw.cz www.jitka.ucw.cz;
-    return 301 https://jitka.ucw.cz$request_uri;
-}
-
-server {
-
-    root /var/www/html;
-    server_name jitka.ucw.cz www.jitka.ucw.cz;
-
-    listen [::]:443 ssl ipv6only=on; # managed by Certbot
-    listen 443 ssl; # managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/jitka.ucw.cz/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/jitka.ucw.cz/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
-    location /tt-rss/ {
-          proxy_set_header Host $host;
-          proxy_set_header X-Real-IP $remote_addr;
-          proxy_set_header X-Forwarded-For $remote_addr;
-          proxy_set_header X-Forwarded-Proto $scheme;
-
-          proxy_pass http://127.0.0.1:8280/tt-rss/;
-          break;
-    }
-}
+sudo nginx -t
+sudo tail -f /var/log/nginx/error.log
+sudo service nginx restart
 ```
 
 ### tiny-tiny-rss
