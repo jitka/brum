@@ -22,7 +22,7 @@ update-locale LANG=en_US.UTF-8
 ```
 
 ```
-sudo apt install git docker-compose nginx python3-certbot-nginx certbot 
+sudo apt install git docker-compose nginx python3-certbot-nginx certbot wget
 ssh-keygen -t ed25519 -C "jitka@ucw.cz"
 cat ~/.ssh/id_ed25519.pub
 mkdir git && cd git
@@ -31,7 +31,7 @@ cd && rm -r .bashrc .gitconfig .vimrc
 for i in bashrc gitconfig vimrc; do ln -s $HOME/git/brum/configs/.$i .$i; done
 ```
 
-### homepage
+## nginx / homepage
 
 ```
 sudo certbot --nginx --email jitka@ucw.cz -d jitka.ucw.cz
@@ -43,6 +43,25 @@ sudo nginx -t
 sudo tail -f /var/log/nginx/error.log
 sudo service nginx restart
 ```
+
+## docker / services
+
+```
+sudo usermod -aG docker $USER
+# log out & log in
+docker run hello-world
+```
+
+### planka
+
+[planka docker-compose](https://docs.planka.cloud/docs/installation/docker/production_version)
+```
+mkcd services/planka
+wget https://raw.githubusercontent.com/plankanban/planka/master/docker-compose.yml
+# manual changes
+docker-copmose up &
+```
+
 
 ### tiny-tiny-rss
 [návod](https://git.tt-rss.org/fox/ttrss-docker-compose/src/static-dockerhub/README.md)
