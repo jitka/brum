@@ -37,6 +37,7 @@ for i in bashrc gitconfig vimrc; do ln -s $HOME/git/brum/configs/.$i .$i; done
 sudo certbot --nginx --email jitka@ucw.cz -d jitka.ucw.cz
 sudo ln -s /home/jitka/git/brum/server/index.html /var/www/html/index.html
 sudo ln -s /home/jitka/git/brum/server/jitka.ucw.cz.conf /etc/nginx/conf.d/jitka.ucw.cz.conf
+sudo chmod o+x /home/jitka /home/jitka/git /home/jitka/git/brum /home/jitka/git/brum/server
 
 sudo nginx -t
 sudo tail -f /var/log/nginx/error.log
