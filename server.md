@@ -36,7 +36,12 @@ for i in bashrc gitconfig vimrc; do ln -s $HOME/git/brum/config/$i .$i; done
 ```
 sudo certbot --nginx --email jitka@ucw.cz -d jitka.ucw.cz
 sudo ln -s /home/jitka/git/brum/server/index.html /var/www/html/index.html
-sudo ln -s /home/jitka/git/brum/server/jitka.ucw.cz.conf /etc/nginx/conf.d/jitka.ucw.cz.conf
+sudo ln -s /home/jitka/git/brum/server/jitka.ucw.cz.conf /etc/nginx/sites-avilable/jitka.ucw.cz.conf
+sudo ln -s /home/jitka/git/brum/server/planka.jitka.ucw.cz.conf /etc/nginx/sites-available/planka.jitka.ucw.cz.conf
+sudo ln -s /home/jitka/git/brum/server/home.jitka.ucw.cz.conf /etc/nginx/sites-available/home.jitka.ucw.cz.conf
+sudo ln -s /etc/nginx/sites-available/jitka.ucw.cz.conf /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/planka.jitka.ucw.cz.conf /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/home.jitka.ucw.cz.conf /etc/nginx/sites-enabled/
 sudo chmod o+x /home/jitka /home/jitka/git /home/jitka/git/brum /home/jitka/git/brum/server
 
 sudo nginx -t
