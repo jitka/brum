@@ -22,7 +22,7 @@ update-locale LANG=en_US.UTF-8
 ```
 
 ```
-sudo apt install git docker-compose nginx python3-certbot-nginx certbot wget
+sudo apt install git docker-compose nginx python3-certbot-nginx certbot wget apache2-utils
 ssh-keygen -t ed25519 -C "jitka@ucw.cz"
 cat ~/.ssh/id_ed25519.pub
 mkdir git && cd git
@@ -43,6 +43,7 @@ sudo ln -s /etc/nginx/sites-available/jitka.ucw.cz.conf /etc/nginx/sites-enabled
 sudo ln -s /etc/nginx/sites-available/planka.jitka.ucw.cz.conf /etc/nginx/sites-enabled/
 sudo ln -s /etc/nginx/sites-available/home.jitka.ucw.cz.conf /etc/nginx/sites-enabled/
 sudo chmod o+x /home/jitka /home/jitka/git /home/jitka/git/brum /home/jitka/git/brum/server
+sudo htpasswd -c /etc/nginx/.htpasswd jitka
 
 sudo nginx -t
 sudo tail -f /var/log/nginx/error.log
@@ -89,6 +90,10 @@ v tuto chvílí běží [zde](http://37.205.14.245:8280/tt-rss/)
 přihlásit je jako `admin` `password`, změnit heslo, vytvořit uživatele `jitka`
 
 ### sync thing
+```
+sudo apt install syncthing
+```
+
 
 ### calibre
 [official manual](https://manual.calibre-ebook.com/server.html#accessing-the-server-from-devices-on-your-home-network)
