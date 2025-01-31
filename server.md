@@ -39,9 +39,13 @@ sudo ln -s /home/jitka/git/brum/server/index.html /var/www/html/index.html
 sudo ln -s /home/jitka/git/brum/server/jitka.ucw.cz.conf /etc/nginx/sites-avilable/jitka.ucw.cz.conf
 sudo ln -s /home/jitka/git/brum/server/planka.jitka.ucw.cz.conf /etc/nginx/sites-available/planka.jitka.ucw.cz.conf
 sudo ln -s /home/jitka/git/brum/server/home.jitka.ucw.cz.conf /etc/nginx/sites-available/home.jitka.ucw.cz.conf
+sudo ln -s /home/jitka/git/brum/server/syncthing.jitka.ucw.cz.conf /etc/nginx/sites-available/syncthing.jitka.ucw.cz.conf
+sudo ln -s /home/jitka/git/brum/server/test.jitka.ucw.cz.conf /etc/nginx/sites-available/test.jitka.ucw.cz.conf
 sudo ln -s /etc/nginx/sites-available/jitka.ucw.cz.conf /etc/nginx/sites-enabled/
 sudo ln -s /etc/nginx/sites-available/planka.jitka.ucw.cz.conf /etc/nginx/sites-enabled/
 sudo ln -s /etc/nginx/sites-available/home.jitka.ucw.cz.conf /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/syncthing.jitka.ucw.cz.conf /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/test.jitka.ucw.cz.conf /etc/nginx/sites-enabled/
 sudo chmod o+x /home/jitka /home/jitka/git /home/jitka/git/brum /home/jitka/git/brum/server
 sudo htpasswd -c /etc/nginx/.htpasswd jitka
 
@@ -90,8 +94,11 @@ v tuto chvílí běží [zde](http://37.205.14.245:8280/tt-rss/)
 přihlásit je jako `admin` `password`, změnit heslo, vytvořit uživatele `jitka`
 
 ### sync thing
+try https://f-a.nz/dev/setup-syncthing-on-debian-server-with-nginx-reverse-proxy/
+
 ```
 sudo apt install syncthing
+systemctl --user enable syncthing
 ```
 
 
