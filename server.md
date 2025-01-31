@@ -94,11 +94,11 @@ v tuto chvílí běží [zde](http://37.205.14.245:8280/tt-rss/)
 přihlásit je jako `admin` `password`, změnit heslo, vytvořit uživatele `jitka`
 
 ### sync thing
-try https://f-a.nz/dev/setup-syncthing-on-debian-server-with-nginx-reverse-proxy/
 
 ```
 sudo apt install syncthing
-systemctl --user enable syncthing
+sudo systemctl enable syncthing@jitka.service
+sudo systemctl start syncthing@jitka.service
 ```
 
 
